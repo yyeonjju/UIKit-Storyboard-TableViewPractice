@@ -21,6 +21,15 @@ class ViewController: UIViewController {
         
         setupTableView()
         setupDatas()
+        title = "영화목록"
+        
+    }
+    
+    //⭐️ 테이블뷰 아래에 데이터 추가할 때 중요!
+    @IBAction func addButtonTapped(_ sender: UIBarButtonItem) {
+        movieDataManager.addMovieData()  // 일반적으로는 서버에 요청 (데이터 업데이트)
+        moviesArray = movieDataManager.getMovieData()  // 다시 데이터 받아서 뷰컨의 배열에 저장
+        tableView.reloadData()   // 테이블뷰를 다시 불러오기
         
     }
     
